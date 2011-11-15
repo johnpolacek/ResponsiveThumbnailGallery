@@ -27,14 +27,14 @@ You can configure the settings as follows (example has the default config values
     
 Parameters are:
     
-**thumbImages:** path to the thumbnails
-**smallImages:** path to the small size images
-**largeImages:** path to the large size images
-**count:** number of images/thumbnails
-**thumbImageType:** file extension for thumbnail images (all should be the same)
-**imageType:** file extension for gallery images (all should be the same)
-**breakpoint:** width at which the small and large image sizes are swapped
-**shadowStrength:** strength of the shadow on the non-selected thumbs (0-1)
+**thumbImages:** path to the thumbnails  
+**smallImages:** path to the small size images  
+**largeImages:** path to the large size images  
+**count:** number of images/thumbnails  
+**thumbImageType:** file extension for thumbnail images (all should be the same)  
+**imageType:** file extension for gallery images (all should be the same)  
+**breakpoint:** width at which the small and large image sizes are swapped  
+**shadowStrength:** strength of the shadow on the non-selected thumbs (0-1)  
 
 
 jQuery Responsive Thumbnail Gallery Plugin created by John Polacek
