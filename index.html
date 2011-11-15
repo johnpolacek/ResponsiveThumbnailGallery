@@ -1,0 +1,94 @@
+<!doctype html>
+
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	
+	<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>jQuery Responsive Thumbnail Gallery Plugin Demo</title>
+	
+	<meta name="title" content="jQuery Thumb Gallery Plugin Demo">
+	<meta name="description" content="jQuery Thumb Gallery Plugin Demo">
+	
+	<meta name="author" content="John Polacek">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	<meta http-equiv="cleartype" content="on">
+	
+	<link rel="shortcut icon" href="_/img/favicon.ico">
+	<link rel="stylesheet" href="_/css/normalize.css">
+	<link rel="stylesheet" href="_/css/main.css">
+	
+	<script src="_/js/modernizr-2.0.6.min.js"></script>
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+	
+		<header>
+			<h1>jQuery Responsive Thumbnail Gallery</h1>
+		</header>
+		
+		<article>
+			
+			<div id="gallery">
+				<p>Put your alt no-js content here.</p>
+			</div>
+			<p class="credit">
+				Photos by <a href="http://photos.theshotwellcollection.com">Andrew Schmidt</a> via
+				<a href="http://www.publicdomainpictures.net/browse-author.php?a=1081">publicdomainpictures.net</a>
+			</p>
+
+			
+		</article>
+		
+		<footer>
+			
+			<p>jQuery Responsive Thumbnail Gallery Plugin created by John Polacek</p>
+			<p>
+				<a href="https://johnpolacek.github.com">johnpolacek.github.com</a>
+				<a href="http://johnpolacek.com">johnpolacek.com</a>
+				<a href="http://twitter.com/johnpolacek">@johnpolacek</a>
+			</p>
+			
+		</footer>
+	
+	</div>
+	
+	<!-- JavaScript -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"></script>
+	<script>window.jQuery || document.write("<script src='_/js/jquery.min.js'>\x3C/script>")</script>
+	<script src="_/js/responsivethumbnailgallery.js"></script>
+	<script>
+		$(document).ready(function() {
+		
+			var gallery = new $.ThumbnailGallery($('#gallery'));
+					
+		});
+	</script>
+	
+	<!-- Google Analytics
+		 
+	<script>
+	
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-XXXXXX-XX']);
+	  _gaq.push(['_trackPageview']);
+	
+	  (function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	
+	</script>
+	-->
+  
+</body>
+</html>
