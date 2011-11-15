@@ -25,6 +25,7 @@ You can configure the settings as follows (example has the default config values
         });
 	});
     
+
 Parameters are:
     
 **thumbImages:** path to the thumbnails  
@@ -37,7 +38,7 @@ Parameters are:
 **shadowStrength:** strength of the shadow on the non-selected thumbs (0-1)  
 
 
-jQuery Responsive Thumbnail Gallery Plugin created by John Polacek
+jQuery Responsive Thumbnail Gallery Plugin created by John Polacek  
 Twitter: http://twitter.com/#!/johnpolacek  
 Blog: http://johnpolacek.com
 
