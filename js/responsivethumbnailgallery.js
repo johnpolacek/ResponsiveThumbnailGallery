@@ -43,7 +43,7 @@
             nav
                 .css('margin','0 auto')
                 .css('position','relative')
-                .css('background-color','#444');
+                .css('background-color','#222');
             
             thumbnails = $('<div id="nav-thumbnails"></div>');
             buttons = $('<div id="nav-buttons"></div>');
@@ -112,6 +112,7 @@
         
         function updateMainImage(imageNumber) {
             currImageNumber = imageNumber;
+            view.css('visibility','hidden');
             mainImage = $('<img src="'+imagesPath+imageNumber+'.'+plugin.settings.imageType+'" id="main-image" />');
             $("<img/>") // Make in memory copy of image to avoid css issues
                 .attr("src", $(mainImage).attr("src"))
@@ -119,9 +120,9 @@
                     imageWidth = this.width;
                     imageHeight = this.height;
                     updateSize();
-                    view.empty().append(mainImage);
+                    view.css('visibility','visible');
                 });
-            
+            view.empty().append(mainImage);
         }
         
         function updateSize() {
