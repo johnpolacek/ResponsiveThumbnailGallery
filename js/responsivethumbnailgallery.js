@@ -86,7 +86,7 @@
                 } else {
                     button
                         .css('box-shadow','0px 4px 8px rgba(0,0,0,'+ plugin.settings.shadowStrength +') inset')
-                        .css('background','rgba(0,0,0,'+ plugin.settings.shadowStrength/2 +'')
+                        .css('background-color','rgba(0,0,0,'+ plugin.settings.shadowStrength/2 +')');
                 }
                 
                 thumbnails.append(thumbImage);
@@ -97,7 +97,7 @@
                 e.preventDefault();
                 $('.gallery-button')
                     .css('box-shadow','0px 4px 8px rgba(0,0,0,'+ plugin.settings.shadowStrength +') inset')
-                    .css('background','rgba(0,0,0,'+ plugin.settings.shadowStrength/2 +'');
+                    .css('background-color','rgba(0,0,0,'+ plugin.settings.shadowStrength/2 +')');
                 $(this)
                     .css('box-shadow','none')
                     .css('background','none');
