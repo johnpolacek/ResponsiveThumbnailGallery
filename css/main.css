@@ -129,4 +129,15 @@ pre {
     .footer {
         margin-top: 30px;
     }
+    
+    #container {
+        padding-top: 80px;
+    }
+    
+    .footer a, footer a:visited {
+        font-size: 28px;
+        font-style: italic;
+        line-height: 1.6;
+        padding: 14px;
+    }
 }
