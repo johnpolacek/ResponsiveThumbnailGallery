@@ -12,7 +12,9 @@
             gallery,
             view,
             mainImage,
-            nav;
+            nav,
+            thumbnails,
+            buttons;
             
         var defaults = {
             thumbImages: '_/img/thumbs/thumb',
@@ -38,9 +40,19 @@
             view.css('margin','0 auto -1px');
             
             nav = $('<div id="gallery-nav"></div>');
-            nav.css('margin','0 auto');
+            nav
+                .css('margin','0 auto')
+                .css('position','relative')
+                .css('background-color','#222');
+            
+            thumbnails = $('<div id="nav-thumbnails"></div>');
+            buttons = $('<div id="nav-buttons"></div>');
+            buttons
+                .css('position','absolute')
+                .css('top','0');
             
             gallery.append(view, nav);
+            nav.append(thumbnails, buttons);
             
             isUnderBreakpoint = $(window).width() < plugin.settings.breakpoint;
             imagesPath = isUnderBreakpoint ?
@@ -49,35 +61,43 @@
             updateMainImage(1);
             
             for (var i=0; i<plugin.settings.count; i++) {
-                var thumb = $('<a href="#" class="thumb"></a>');
-                var thumbImage = $('<img src="'+(plugin.settings.thumbImages)+(i+1)+'.'+plugin.settings.thumbImageType+'" />');
+                
+                var button = $('<a href="#" class="gallery-button"></a>');
+                button
+                    .css('display','block')
+                    .css('float','left');
+                
+                var thumbImage = $('<img class="thumbnail-image" src="'+(plugin.settings.thumbImages)+(i+1)+'.'+plugin.settings.thumbImageType+'" />');
+                thumbImage
+                    .css('display','block')
+                    .css('float','left');
+                
                 if (i===0) {
                     thumbImage.load(function() {
                         thumbWidth = this.width;
                         thumbHeight = this.height;
-                        $('.thumb').css('width',this.width);
-                        $('.thumb').css('height',this.height);
+                        $('.gallery-button')
+                            .css('width',this.width)
+                            .css('height',this.height);
                         nav.css('height',thumbHeight);
+                        thumbnails.css('height',thumbHeight);
                         updateSize();
                     });
                 } else {
-                    thumb
+                    button
                         .css('box-shadow','0px 4px 8px rgba(0,0,0,'+ plugin.settings.shadowStrength +') inset')
-                        .css('background','rgba(0,0,0,'+ plugin.settings.shadowStrength/2 +'');
+                        .css('background-color','rgba(0,0,0,'+ plugin.settings.shadowStrength/2 +')');
                 }
-                thumbImage.css('z-index','-1');
-                thumbImage.css('position','relative');
-                thumb.css('display','block');
-                thumb.css('float','left');
-                thumb.append(thumbImage);
-                nav.append(thumb);
+                
+                thumbnails.append(thumbImage);
+                buttons.append(button);
             }           
               
-            nav.delegate('.thumb', 'click', function(e){
+            buttons.delegate('.gallery-button', 'click', function(e){
                 e.preventDefault();
-                $('.thumb')
+                $('.gallery-button')
                     .css('box-shadow','0px 4px 8px rgba(0,0,0,'+ plugin.settings.shadowStrength +') inset')
-                    .css('background','rgba(0,0,0,'+ plugin.settings.shadowStrength/2 +'');
+                    .css('background-color','rgba(0,0,0,'+ plugin.settings.shadowStrength/2 +')');
                 $(this)
                     .css('box-shadow','none')
                     .css('background','none');
@@ -92,6 +112,7 @@
         
         function updateMainImage(imageNumber) {
             currImageNumber = imageNumber;
+            view.css('visibility','hidden');
             mainImage = $('<img src="'+imagesPath+imageNumber+'.'+plugin.settings.imageType+'" id="main-image" />');
             $("<img/>") // Make in memory copy of image to avoid css issues
                 .attr("src", $(mainImage).attr("src"))
@@ -99,6 +120,7 @@
                     imageWidth = this.width;
                     imageHeight = this.height;
                     updateSize();
+                    view.css('visibility','visible');
                 });
             view.empty().append(mainImage);
         }
@@ -153,16 +175,23 @@
                         thumbScale = (galleryWidth / numThumbsInRow) / thumbWidth;
                         var newWidth = thumbWidth * thumbScale;
                         var newHeight = thumbHeight * thumbScale;
-                        $('.thumb:eq('+thumbIndex+')')
+                        $('.thumbnail-image:eq('+thumbIndex+')')
                             .css('width',newWidth)
                             .css('height',newHeight);
-                        $('.thumb:eq('+thumbIndex+') img')
+                        $('.thumbnail-image:eq('+thumbIndex+') img')
+                            .css('width',newWidth)
+                            .css('height',newHeight);
+                        $('.gallery-button:eq('+thumbIndex+')')
+                            .css('width',newWidth)
+                            .css('height',newHeight);
+                        $('.gallery-button:eq('+thumbIndex+') img')
                             .css('width',newWidth)
                             .css('height',newHeight);
                         thumbIndex++;
                     }
                     thumbsRemainder -= numThumbsInRow;
-                }  
+                }
+                
             }
             
             // update view size
