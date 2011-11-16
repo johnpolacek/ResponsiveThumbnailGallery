@@ -120,3 +120,13 @@ pre {
 .footer a:hover {
     color: #aaa;
 }
+
+@media screen and (max-width: 480px) {
+    .guide, .download {
+        display: none;
+    }
+    
+    .footer {
+        margin-top: 30px;
+    }
+}
