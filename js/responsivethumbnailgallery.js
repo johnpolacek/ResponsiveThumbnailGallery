@@ -119,8 +119,9 @@
                     imageWidth = this.width;
                     imageHeight = this.height;
                     updateSize();
+                    view.empty().append(mainImage);
                 });
-            view.empty().append(mainImage);
+            
         }
         
         function updateSize() {
