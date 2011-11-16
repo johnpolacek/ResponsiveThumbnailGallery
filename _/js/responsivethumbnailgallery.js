@@ -112,17 +112,18 @@
         
         function updateMainImage(imageNumber) {
             currImageNumber = imageNumber;
-            view.css('visibility','hidden');
             mainImage = $('<img src="'+imagesPath+imageNumber+'.'+plugin.settings.imageType+'" id="main-image" />');
+            mainImage.load(function() {
+                view.empty().append(mainImage);
+                updateSize();
+            });
             $("<img/>") // Make in memory copy of image to avoid css issues
                 .attr("src", $(mainImage).attr("src"))
                 .load(function() {
                     imageWidth = this.width;
                     imageHeight = this.height;
-                    updateSize();
-                    view.css('visibility','visible');
                 });
-            view.empty().append(mainImage);
+            
         }
         
         function updateSize() {
