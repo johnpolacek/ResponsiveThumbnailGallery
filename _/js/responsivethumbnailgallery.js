@@ -1,3 +1,12 @@
+/*
+	jQuery Responsive Thumbnail Gallery Plugin
+	by John Polacek (@johnpolacek)
+	
+	Docs: http://johnpolacek.github.com/ResponsiveThumbnailGallery/
+	
+	License: http://www.opensource.org/licenses/mit-license.php
+*/
+
 (function($) {
 
     $.ThumbnailGallery = function(el, options) {
